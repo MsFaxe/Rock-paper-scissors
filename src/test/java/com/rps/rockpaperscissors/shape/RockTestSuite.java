@@ -34,7 +34,7 @@ public class RockTestSuite {
         Shape shape = new ROCK();
 
         //When
-        String shapeLose = shape.win();
+        String shapeLose = shape.lose();
 
         //Then
         assertEquals("ROCK lost", shapeLose);
