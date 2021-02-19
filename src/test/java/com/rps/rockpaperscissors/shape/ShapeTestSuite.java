@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class ShapeTestSuice {
+public class ShapeTestSuite {
     @Test
     public void testGetNameMethod() {
         //Given
