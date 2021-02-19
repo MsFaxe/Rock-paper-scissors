@@ -29,14 +29,15 @@ public class ShapeTestSuite {
         assertEquals("null won", shapeWin);
     }
 
-    @Test void testLoseMetod() {
+    @Test
+    public void testDefeatMethod() {
         //Given
         Shape shape = new Shape();
 
         //When
-        String shapeLose = shape.defeat();
+        String shapeDefeat = shape.defeat();
 
         //Then
-        assertEquals("null lost", shapeLose);
+        assertEquals("null lost", shapeDefeat);
     }
 }

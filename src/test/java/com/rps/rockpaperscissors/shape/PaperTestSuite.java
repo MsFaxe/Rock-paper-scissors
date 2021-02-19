@@ -30,15 +30,16 @@ public class PaperTestSuite {
         assertEquals("PAPER won", shapeWin);
     }
 
-    @Test void testLoseMetod() {
+    @Test
+    public void testDefeatMethod() {
         //Given
         Shape shape = new Paper();
 
         //When
-        String shapeLose = shape.defeat();
+        String shapeDefeat = shape.defeat();
 
         //Then
-        assertEquals("PAPER lost", shapeLose);
+        assertEquals("PAPER lost", shapeDefeat);
     }
 
 }

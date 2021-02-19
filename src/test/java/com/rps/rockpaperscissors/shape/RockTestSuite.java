@@ -20,7 +20,7 @@ public class RockTestSuite {
     @Test
     public void testWinMethod() {
         //Given
-        Shape shape = new ROCK();
+        Shape shape = new Rock();
 
         //When
         String shapeWin = shape.win();
@@ -29,14 +29,15 @@ public class RockTestSuite {
         assertEquals("ROCK won", shapeWin);
     }
 
-    @Test void testLoseMetod() {
+    @Test
+    public void testDefeatMethod() {
         //Given
-        Shape shape = new ROCK();
+        Shape shape = new Rock();
 
         //When
-        String shapeLose = shape.defeat();
+        String shapeDefeat = shape.defeat();
 
         //Then
-        assertEquals("ROCK lost", shapeLose);
+        assertEquals("ROCK lost", shapeDefeat);
     }
 }
