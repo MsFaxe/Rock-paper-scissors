@@ -35,7 +35,7 @@ public class PaperTestSuite {
         Shape shape = new Paper();
 
         //When
-        String shapeLose = shape.lose();
+        String shapeLose = shape.defeat();
 
         //Then
         assertEquals("PAPER lost", shapeLose);

@@ -7,7 +7,7 @@ public class Shape {
         System.out.println(getName() + " won");
     }
 
-    public void lose() {
+    public void defeat() {
         System.out.println(getName() + " lost");
     }
 

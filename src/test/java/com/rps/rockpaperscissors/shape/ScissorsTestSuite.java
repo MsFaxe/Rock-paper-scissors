@@ -34,7 +34,7 @@ public class ScissorsTestSuite {
         Shape shape = new Scissors();
 
         //When
-        String shapeLose = shape.lose();
+        String shapeLose = shape.defeat();
 
         //Then
         assertEquals("SCISSORS lost", shapeLose);

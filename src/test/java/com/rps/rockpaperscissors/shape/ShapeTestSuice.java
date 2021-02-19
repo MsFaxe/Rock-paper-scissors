@@ -34,7 +34,7 @@ public class ShapeTestSuice {
         Shape shape = new Shape();
 
         //When
-        String shapeLose = shape.lose();
+        String shapeLose = shape.defeat();
 
         //Then
         assertEquals("null lost", shapeLose);
