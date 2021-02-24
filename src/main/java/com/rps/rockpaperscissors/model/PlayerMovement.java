@@ -1,8 +1,5 @@
 package com.rps.rockpaperscissors.model;
 
-import com.rps.rockpaperscissors.shape.Paper;
-import com.rps.rockpaperscissors.shape.Rock;
-import com.rps.rockpaperscissors.shape.Scissors;
 import com.rps.rockpaperscissors.shape.Shape;
 
 import java.util.Scanner;
@@ -10,7 +7,7 @@ import java.util.Scanner;
 public class PlayerMovement extends Movement {
     private Scanner scanner = new Scanner(System.in);
 
-    public Shape PlayerTurn() {
+    public Shape playerTurn() {
         String s = scanner.next();
         Shape shape = new Shape();
 
@@ -25,7 +22,7 @@ public class PlayerMovement extends Movement {
                 shape = getScissors();
                 break;
             default:
-                PlayerTurn();
+                playerTurn();
                 break;
         }
         return shape;
