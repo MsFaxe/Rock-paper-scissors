@@ -1,5 +1,6 @@
 package com.rps.rockpaperscissors.model;
 
+import com.rps.rockpaperscissors.messages.Command;
 import com.rps.rockpaperscissors.shape.Shape;
 
 import java.util.Arrays;
@@ -12,19 +13,35 @@ public class GameLogic {
 
     private final PlayerMovement player = new PlayerMovement();
     private final ComputerMovement computer = new ComputerMovement();
+    private final Score score = new Score();
+    private final Command command = new Command();
 
-    public void oneRound() {
-        System.out.println("Choose 1, 2 or 3");
+    public void game(int numberOfRound) {
+        while(numberOfRound>0) {
+            score.gameScore(oneRound());
+            numberOfRound -= 1;
+        }
+
+        System.out.println("You end game with score: player - "
+                + score.getPlayerScore()
+                + ", computer - "
+                + score.getComputerScore());
+    }
+
+    public int[] oneRound() {
+        command.selectShape();
 
         Shape plSh = player.playerTurn();
         Shape comSh = computer.computerTurn();
-        System.out.println("Player: " + plSh.getName() + ", " + "\nComputer: " + comSh.getName());
+        command.showSelectedShape(plSh, comSh);
 
-        int[] oneRoundScore = gameScheme(plSh.getName(), comSh.getName());
-        score(plSh, comSh, oneRoundScore);
+        int[] oneRoundScore = score.roundScore(plSh, comSh, gameScheme(plSh.getName(), comSh.getName()));
+        command.showRoundScore(oneRoundScore[0], oneRoundScore[1]);
+
+        return oneRoundScore;
     }
 
-    public int[] gameScheme(String playerShape, String computerShape) {
+    private int[] gameScheme(String playerShape, String computerShape) {
         List shapes = Arrays.asList(playerShape, computerShape);
         int rock = 0, paper = 0, scissors = 0, win = 1;
 
@@ -39,31 +56,5 @@ public class GameLogic {
         }
 
         return new int[]{rock, paper, scissors};
-    }
-
-    public void score(Shape playerShape, Shape computerShape, int[] gameScheme) {
-        int player = 0, computer = 0;
-        player = getResult(playerShape.getName(), player, gameScheme);
-        computer = getResult(computerShape.getName(), computer, gameScheme);
-
-        System.out.println("Score: " + player + ", " + computer);
-    }
-
-    private int getResult(String shape, int result, int[] gameScheme) {
-        int rock = gameScheme[0];
-        int paper = gameScheme[1];
-        int scissors = gameScheme[2];
-
-        switch (shape) {
-            case ROCK:
-                result = rock;
-                break;
-            case PAPER:
-                result = paper;
-                break;
-            case SCISSORS:
-                result = scissors;
-        }
-        return result;
     }
 }
