@@ -5,6 +5,7 @@ import com.rps.rockpaperscissors.shape.Shape;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class GameLogic {
     private final String ROCK = "ROCK";
@@ -28,10 +29,11 @@ public class GameLogic {
                 + score.getComputerScore());
     }
 
+    Shape plSh = new Shape();
     public int[] oneRound() {
         command.selectShape();
 
-        Shape plSh = player.playerTurn();
+        playerChoice();
         Shape comSh = computer.computerTurn();
         command.showSelectedShape(plSh, comSh);
 
@@ -39,6 +41,16 @@ public class GameLogic {
         command.showRoundScore(oneRoundScore[0], oneRoundScore[1]);
 
         return oneRoundScore;
+    }
+
+    private void playerChoice() {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            plSh = player.playerTurn(scanner.nextInt());
+        } catch (Exception e) {
+            System.out.println("Please choose 1, 2 or 3");
+            playerChoice();
+        }
     }
 
     private int[] gameScheme(String playerShape, String computerShape) {
