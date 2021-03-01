@@ -13,10 +13,10 @@ public class PlayerMovement extends Movement {
 
         switch (s) {
             case "1":
-                shape = getPaper();
+                shape = getRock();
                 break;
             case "2":
-                shape = getRock();
+                shape = getPaper();
                 break;
             case "3":
                 shape = getScissors();

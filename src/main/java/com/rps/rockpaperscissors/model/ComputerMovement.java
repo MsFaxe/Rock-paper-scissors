@@ -13,10 +13,10 @@ public class ComputerMovement extends Movement{
 
         switch(i){
             case 0:
-                shape = getPaper();
+                shape = getRock();
                 break;
             case 1:
-                shape = getRock();
+                shape = getPaper();
                 break;
             case 2:
                 shape = getScissors();
