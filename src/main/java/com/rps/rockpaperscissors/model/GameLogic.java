@@ -53,9 +53,9 @@ public class GameLogic {
         } catch (Exception e) {
             String s = scanner.next();
 
-            if (s.equals("x")) {
-                ExitGame exitGame = new ExitGame();
-                exitGame.exit();
+            if (s.equals("x") || s.equals("n")) {
+                EndGame endGame = new EndGame();
+                endGame.end(s);
             } else {
                 command.wrongChoice();
             }

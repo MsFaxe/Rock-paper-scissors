@@ -29,4 +29,9 @@ public class Command {
                 + ", computer - "
                 + computerScore);
     }
+
+    public void confirmChoice() {
+        System.out.println("Are you sure you want end the current game?");
+        System.out.println("Y - yes, N - no");
+    }
 }
