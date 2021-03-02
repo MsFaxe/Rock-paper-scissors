@@ -10,7 +10,7 @@ public class ExitGame {
         Scanner scanner = new Scanner(System.in);
         String s = scanner.next();
         if (s.equals("y")) {
-            System.exit(1);
+            System.exit(0);
         } else if (s.equals("n")) {
             System.out.println("You decided to stay in game, so take your choice: 1, 2 or 3");
         } else {
