@@ -51,7 +51,15 @@ public class GameLogic {
                 validateHumanChoice();
             }
         } catch (Exception e) {
-            command.wrongChoice();
+            String s = scanner.next();
+
+            if (s.equals("x")) {
+                ExitGame exitGame = new ExitGame();
+                exitGame.exit();
+            } else {
+                command.wrongChoice();
+            }
+
             validateHumanChoice();
         }
     }
