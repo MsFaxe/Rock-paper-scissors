@@ -22,11 +22,7 @@ public class GameLogic {
             score.gameScore(oneRound());
             numberOfRound -= 1;
         }
-
-        System.out.println("You end game with score: player - "
-                + score.getPlayerScore()
-                + ", computer - "
-                + score.getComputerScore());
+        command.showMatchScore(score.getPlayerScore(), score.getComputerScore());
     }
 
     Shape plSh = new Shape();
@@ -51,11 +47,11 @@ public class GameLogic {
             if (i > 0 && i < 4) {
                 plSh = player.playerTurn(i);
             } else {
-                System.out.println("Please choose 1, 2 or 3");
+                command.wrongChoice();
                 validateHumanChoice();
             }
         } catch (Exception e) {
-            System.out.println("Please choose 1, 2 or 3");
+            command.wrongChoice();
             validateHumanChoice();
         }
     }
@@ -65,7 +61,7 @@ public class GameLogic {
         int rock = 0, paper = 0, scissors = 0, win = 1;
 
         if (playerShape.equals(computerShape)) {
-            System.out.println("DEAD-HEAD");
+            command.deadHead();
         } else if(shapes.contains(ROCK) && shapes.contains(PAPER)) {
             paper = win;
         } else if (shapes.contains(ROCK) && shapes.contains(SCISSORS)) {
