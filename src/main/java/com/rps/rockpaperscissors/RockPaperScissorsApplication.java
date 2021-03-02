@@ -1,7 +1,6 @@
 package com.rps.rockpaperscissors;
 
 import com.rps.rockpaperscissors.messages.GameInstruction;
-import com.rps.rockpaperscissors.model.GameLogic;
 import com.rps.rockpaperscissors.model.Start;
 
 //@SpringBootApplication
@@ -14,10 +13,6 @@ public class RockPaperScissorsApplication {
         gameInstruction.loudInstruction();
 
         Start newGame = new Start();
-        newGame.enterYourName();
-        newGame.enterTheNumberOfRounds();
-
-        GameLogic gameLogic = new GameLogic();
-        gameLogic.game(newGame.getRounds());
+        newGame.runGame();
     }
 }

@@ -9,6 +9,14 @@ public class Start {
     private String name;
     private int rounds = 0;
 
+    public void runGame() {
+        enterYourName();
+        enterTheNumberOfRounds();
+
+        GameLogic gameLogic = new GameLogic();
+        gameLogic.game(getRounds());
+    }
+
     public void enterYourName() {
         System.out.println("Enter your name, please.");
         Scanner scanner = new Scanner(System.in);
