@@ -33,7 +33,8 @@ public class GameLogic {
     public int[] oneRound() {
         command.selectShape();
 
-        playerChoice();
+        validateHumanChoice();
+
         Shape comSh = computer.computerTurn();
         command.showSelectedShape(plSh, comSh);
 
@@ -43,13 +44,19 @@ public class GameLogic {
         return oneRoundScore;
     }
 
-    private void playerChoice() {
+    private void validateHumanChoice() {
         Scanner scanner = new Scanner(System.in);
         try {
-            plSh = player.playerTurn(scanner.nextInt());
+            int i = scanner.nextInt();
+            if (i > 0 && i < 4) {
+                plSh = player.playerTurn(i);
+            } else {
+                System.out.println("Please choose 1, 2 or 3");
+                validateHumanChoice();
+            }
         } catch (Exception e) {
             System.out.println("Please choose 1, 2 or 3");
-            playerChoice();
+            validateHumanChoice();
         }
     }
 
